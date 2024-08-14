@@ -70,6 +70,9 @@ mod m0000560_alter_vulnerability_cwe_column;
 mod m0000565_alter_advisory_vulnerability_cwe_column;
 mod m0000570_add_import_progress;
 mod m0000575_create_weakness;
+mod m0000580_create_product_version_range;
+mod m0000581_alter_product_cpe_key;
+mod m0000590_create_product_status;
 
 pub struct Migrator;
 
@@ -147,6 +150,9 @@ impl MigratorTrait for Migrator {
             Box::new(m0000565_alter_advisory_vulnerability_cwe_column::Migration),
             Box::new(m0000570_add_import_progress::Migration),
             Box::new(m0000575_create_weakness::Migration),
+            Box::new(m0000580_create_product_version_range::Migration),
+            Box::new(m0000581_alter_product_cpe_key::Migration),
+            Box::new(m0000590_create_product_status::Migration),
         ]
     }
 }

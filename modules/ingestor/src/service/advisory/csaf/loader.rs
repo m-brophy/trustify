@@ -7,7 +7,7 @@ use crate::{
         Graph,
     },
     model::IngestResult,
-    service::{advisory::csaf::PurlStatusCreator, Error, Warnings},
+    service::{advisory::csaf::StatusCreator, Error, Warnings},
 };
 use csaf::{
     vulnerability::{ProductStatus, Vulnerability},
@@ -20,6 +20,7 @@ use tracing::instrument;
 use trustify_common::{db::Transactional, hashing::Digests, id::Id};
 use trustify_cvss::cvss3::Cvss3Base;
 use trustify_entity::labels::Labels;
+//use crate::graph::advisory::advisory_vulnerability::{Version, VersionInfo, VersionSpec};
 
 struct Information<'a>(&'a Csaf);
 
@@ -157,7 +158,7 @@ impl<'g> CsafLoader<'g> {
         product_status: &ProductStatus,
         tx: TX,
     ) -> Result<(), Error> {
-        let mut creator = PurlStatusCreator::new(
+        let mut creator = StatusCreator::new(
             csaf,
             advisory_vulnerability.advisory_vulnerability.advisory_id,
             advisory_vulnerability
@@ -170,7 +171,7 @@ impl<'g> CsafLoader<'g> {
         creator.add_all(&product_status.known_not_affected, "not_affected");
         creator.add_all(&product_status.known_affected, "affected");
 
-        creator.create(&self.graph.connection(&tx)).await?;
+        creator.create(&self.graph, tx).await?;
 
         Ok(())
     }
