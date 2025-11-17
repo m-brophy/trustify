@@ -532,9 +532,9 @@ dependencies = [
 
 [[package]]
 name = "async-compression"
-version = "0.4.33"
+version = "0.4.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "93c1f86859c1af3d514fa19e8323147ff10ea98684e6c7b307912509f50e67b2"
+checksum = "9611ec0b6acea03372540509035db2f7f1e9f04da5d27728436fa994033c00a0"
 dependencies = [
  "compression-codecs",
  "compression-core",
@@ -1756,21 +1756,20 @@ checksum = "b05b61dc5112cbb17e4b6cd61790d9845d13888356391624cbe7e41efeac1e75"
 
 [[package]]
 name = "compression-codecs"
-version = "0.4.32"
+version = "0.4.30"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "680dc087785c5230f8e8843e2e57ac7c1c90488b6a91b88caa265410568f441b"
+checksum = "485abf41ac0c8047c07c87c72c8fb3eb5197f6e9d7ded615dfd1a00ae00a0f64"
 dependencies = [
  "compression-core",
- "liblzma",
  "zstd",
  "zstd-safe",
 ]
 
 [[package]]
 name = "compression-core"
-version = "0.4.30"
+version = "0.4.29"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3a9b614a5787ef0c8802a55766480563cb3a93b435898c422ed2a359cf811582"
+checksum = "e47641d3deaf41fb1538ac1f54735925e275eaf3bf4d55c81b137fba797e5cbb"
 
 [[package]]
 name = "concurrent-queue"
@@ -6141,9 +6140,12 @@ dependencies = [
 
 [[package]]
 name = "roxmltree"
-version = "0.20.0"
+version = "0.21.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6c20b6793b5c2fa6553b250154b78d6d0db37e72700ae35fad9387a46f487c97"
+checksum = "f1964b10c76125c36f8afe190065a4bf9a87bf324842c05701330bba9f1cacbb"
+dependencies = [
+ "memchr",
+]
 
 [[package]]
 name = "rsa"
@@ -8311,13 +8313,10 @@ name = "trustify-db"
 version = "0.4.4"
 dependencies = [
  "anyhow",
- "async-compression",
  "log",
- "postgresql_commands",
  "postgresql_embedded",
  "sea-orm",
  "sea-orm-migration",
- "tokio",
  "tracing",
  "trustify-common",
  "trustify-migration",
@@ -8678,6 +8677,7 @@ dependencies = [
  "futures",
  "hex",
  "log",
+ "rand 0.9.2",
  "rstest",
  "serde_json",
  "sha2",
@@ -8804,19 +8804,15 @@ dependencies = [
  "anyhow",
  "bytes",
  "futures",
- "git2",
  "hex",
+ "liblzma",
  "log",
  "osv",
  "peak_alloc",
  "postgresql_embedded",
- "reqwest",
  "serde",
  "serde_json",
- "sha2",
  "spdx-rs",
- "tar",
- "tempfile",
  "test-context",
  "test-log",
  "tokio",
@@ -8843,6 +8839,8 @@ version = "0.4.4"
 dependencies = [
  "anyhow",
  "clap",
+ "compression-codecs",
+ "compression-core",
  "liblzma",
  "libz-sys",
  "log",
@@ -8859,7 +8857,7 @@ dependencies = [
 [[package]]
 name = "trustify-ui"
 version = "0.1.0"
-source = "git+https://github.com/guacsec/trustify-ui.git?branch=publish%2Fmain#4e1c3cbef45f7b891b3777256b75f1c2f3cff69b"
+source = "git+https://github.com/guacsec/trustify-ui.git?branch=publish%2Frelease%2F0.4.z#ed0331f140066c5440d2e24dbd6023bc271c02e8"
 dependencies = [
  "anyhow",
  "base64 0.22.1",
@@ -9867,7 +9865,6 @@ name = "xtask"
 version = "0.4.4"
 dependencies = [
  "anyhow",
- "bytes",
  "clap",
  "log",
  "postgresql_commands",
@@ -9875,18 +9872,14 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_yaml_ng",
- "tar",
  "tokio",
  "tracing-subscriber",
  "trustify-auth",
  "trustify-common",
  "trustify-db",
  "trustify-module-importer",
- "trustify-module-ingestor",
  "trustify-module-storage",
  "trustify-server",
- "walkdir",
- "walker-common",
 ]
 
 [[package]]
