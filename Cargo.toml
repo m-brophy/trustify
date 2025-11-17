@@ -25,7 +25,7 @@ members = [
 ]
 
 [workspace.package]
-version = "0.4.3"
+version = "0.4.4"
 edition = "2024"
 publish = false
 license = "Apache-2.0"
@@ -91,10 +91,10 @@ num-traits = "0.2"
 oci-client = "0.15"
 openid = "0.18.3"
 openssl = "0.10"
-opentelemetry = "0.30"
-opentelemetry-otlp = "0.30"
-opentelemetry_sdk = "0.30"
-opentelemetry-instrumentation-actix-web = "0.22.0"
+opentelemetry = "0.31"
+opentelemetry-otlp = "0.31"
+opentelemetry_sdk = "0.31"
+opentelemetry-instrumentation-actix-web = "0.23.0"
 osv = { version = "0.2.1", default-features = false, features = [] }
 packageurl = "0.3.0"
 parking_lot = "0.12"
@@ -140,7 +140,7 @@ tracing-core = "0.1"
 tracing-flame = "0.2.0"
 tracing-futures = "0.2.5"
 tracing-log = "0.2"
-tracing-opentelemetry = "0.31"
+tracing-opentelemetry = "0.32"
 tracing-subscriber = { version = "0.3.20", default-features = false }
 url = "2.5.0"
 urlencoding = "2"
